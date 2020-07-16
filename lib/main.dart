@@ -7,6 +7,9 @@ import 'BGS/info_bgs.dart';
 import 'Check/info_check.dart';
 import 'BGS/bgs.dart';
 import 'MassaEspecifica/menu.dart';
+import 'MassaEspecifica/massa_grauda.dart';
+import 'MassaEspecifica/info_miuda.dart';
+import 'MassaEspecifica/info_grauda.dart';
 // import 'Desabilitados/rice.dart';
 // import 'Desabilitados/vazio.dart';
 
@@ -25,6 +28,10 @@ void main() {
       '/infobgs': (context) => InfoBgs(),
       '/cilindros': (context) => Cilindros(),
       '/menu': (context) => Menu(),
+      '/infomiuda': (context) => InfoMiuda(),
+      '/infograuda': (context) => InfoGrauda(),
+      '/massagrauda': (context) => MassaEGrauda(),
+      '/picnometro': (context) => InfoMiuda(),
     },
   ));
 }

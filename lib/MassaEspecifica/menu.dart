@@ -38,6 +38,24 @@ class _MenuState extends State<Menu> {
     );
   }
 
+  massaMiuda() {
+    return Container(
+      margin: const EdgeInsets.fromLTRB(0, 3, 0, 20),
+      height: 50.0,
+      child: RaisedButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(18.0),
+        ),
+        onPressed: () {},
+        child: Text(
+          "Massa Especifica Miúda",
+          style: TextStyle(color: Colors.white, fontSize: 22.0),
+        ),
+        color: Colors.black45,
+      ),
+    );
+  }
+
   massaGrauda() {
     return Container(
       margin: const EdgeInsets.fromLTRB(0, 3, 0, 0),
@@ -46,24 +64,11 @@ class _MenuState extends State<Menu> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(18.0),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/massagrauda');
+        },
         child: Text(
           "Massa Especifica Graúda",
-          style: TextStyle(color: Colors.white, fontSize: 22.0),
-        ),
-        color: Colors.black45,
-      ),
-    );
-  }
-
-  massaMiuda() {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(0, 3, 0, 20),
-      height: 50.0,
-      child: RaisedButton(
-        onPressed: () {},
-        child: Text(
-          "Massa Especifica Miúda",
           style: TextStyle(color: Colors.white, fontSize: 22.0),
         ),
         color: Colors.black45,

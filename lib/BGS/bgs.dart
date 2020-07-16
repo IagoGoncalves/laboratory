@@ -404,8 +404,8 @@ class _BgsState extends State<Bgs> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            "$amst1 \n$amst2 \n$amst3 \n$b2 \n$b38 \n$b316 \n$pesoau \n$massaeu \n$massaec",
-            // "Peso: $_peso e Volume: $_volume",
+            // "$amst1 \n$amst2 \n$amst3 \n$b2 \n$b38 \n$b316 \n$pesoau \n$massaeu \n$massaec",
+            "Peso:  e Volume: ",
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.purple,
@@ -422,6 +422,9 @@ class _BgsState extends State<Bgs> {
       margin: const EdgeInsets.fromLTRB(0, 3, 0, 0),
       height: 30.0,
       child: RaisedButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(18.0),
+        ),
         onPressed: () {
           if (_formkey3.currentState.validate()) {
             calculoAmostra1();
