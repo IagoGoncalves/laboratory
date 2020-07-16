@@ -30,6 +30,8 @@ class _BgsState extends State<Bgs> {
   dynamic _peso;
   dynamic _volume;
 
+  //Map<int,int> = [[4145: 2100],[4405, 2085]];
+
   List<int> cilindro1 = [4145, 2100];
   List<int> cilindro2 = [4405, 2085];
   List<int> cilindro3 = [4140, 2095];
