@@ -8,6 +8,7 @@ import 'Check/info_check.dart';
 import 'BGS/bgs.dart';
 import 'MassaEspecifica/menu.dart';
 import 'MassaEspecifica/massa_grauda.dart';
+import 'MassaEspecifica/massa_miuda.dart';
 import 'MassaEspecifica/info_miuda.dart';
 import 'MassaEspecifica/info_grauda.dart';
 // import 'Desabilitados/rice.dart';
@@ -31,6 +32,7 @@ void main() {
       '/infomiuda': (context) => InfoMiuda(),
       '/infograuda': (context) => InfoGrauda(),
       '/massagrauda': (context) => MassaEGrauda(),
+      '/massamiuda': (context) => MassaEMiuda(),
       '/picnometro': (context) => InfoMiuda(),
     },
   ));

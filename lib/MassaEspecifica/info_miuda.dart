@@ -35,30 +35,26 @@ class _InfoMiudaState extends State<InfoMiuda> {
   }
 
   widgetBody() {
-    return SingleChildScrollView(
-      padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-      child: Form(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            tituloBritas(),
-            infoBritas(),
-            obsBritas(),
-            tituloAmostra1(),
-            infoAmostra1(),
-            tituloAmostra2(),
-            infoAmostra2(),
-            tituloAmostra3(),
-            infoAmostra3(),
-            obsAmostra(),
-            tituloPesoAU(),
-            infoPesoAU(),
-            tituloMassaEU(),
-            infoMassaEU(),
-            tituloMassaEC(),
-            infoMassaEC(),
-            obs(),
-          ],
+    return Center(
+      child: SingleChildScrollView(
+        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+        child: Form(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              tituloMSeca(),
+              infoMSeca(),
+              tituloMSaturada(),
+              infoMSaturada(),
+              tituloReal(),
+              infoReal(),
+              tituloAparente(),
+              infoSaturado(),
+              tituloAbs(),
+              infoAbs(),
+              obs(),
+            ],
+          ),
         ),
       ),
     );
@@ -76,23 +72,23 @@ class _InfoMiudaState extends State<InfoMiuda> {
     );
   }
 
-  tituloBritas() {
+  tituloMSeca() {
     return Container(
       margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
       child: Text(
-        "Cálculo de Britas",
+        "Cálculo Massa Seca",
         textAlign: TextAlign.center,
         style: TextStyle(
-            color: Colors.black, fontSize: 18.0, fontWeight: FontWeight.bold),
+            color: Colors.black, fontSize: 20.0, fontWeight: FontWeight.bold),
       ),
     );
   }
 
-  infoBritas() {
+  infoMSeca() {
     return Container(
       margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
       child: Text(
-        "(Valor da Brita / 100) * Padrão de Agregados",
+        "(Pic + Amostra Seca) - Pic Vazio",
         textAlign: TextAlign.center,
         style: TextStyle(
           color: Colors.black,
@@ -102,37 +98,23 @@ class _InfoMiudaState extends State<InfoMiuda> {
     );
   }
 
-  obsBritas() {
+  tituloMSaturada() {
     return Container(
-      margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+      margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
       child: Text(
-        "Obs. A conta é a mesma para as Britas 2, 3/8 e 3/16.",
+        "Cálculo Massa Saturada",
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: Colors.red,
-          fontSize: 10.0,
-        ),
+            color: Colors.black, fontSize: 20.0, fontWeight: FontWeight.bold),
       ),
     );
   }
 
-  tituloAmostra1() {
+  infoMSaturada() {
     return Container(
       margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
       child: Text(
-        "Cálculo Amostra 1 (ml)",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-            color: Colors.black, fontSize: 18.0, fontWeight: FontWeight.bold),
-      ),
-    );
-  }
-
-  infoAmostra1() {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-      child: Text(
-        "[(Porcentagem de Água - 2) / 100] * Padrão de Agregados",
+        "(Pic + Amostra Saturada) - Pic Vazio",
         textAlign: TextAlign.center,
         style: TextStyle(
           color: Colors.black,
@@ -142,23 +124,23 @@ class _InfoMiudaState extends State<InfoMiuda> {
     );
   }
 
-  tituloAmostra2() {
+  tituloReal() {
     return Container(
       margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
       child: Text(
-        "Cálculo Amostra 2 (ml)",
+        "Cálculo Real",
         textAlign: TextAlign.center,
         style: TextStyle(
-            color: Colors.black, fontSize: 18.0, fontWeight: FontWeight.bold),
+            color: Colors.black, fontSize: 20.0, fontWeight: FontWeight.bold),
       ),
     );
   }
 
-  infoAmostra2() {
+  infoReal() {
     return Container(
       margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
       child: Text(
-        "(Porcentagem de Água / 100) * Padrão de Agregados",
+        "Massa Seca / [Massa Seca + (Pic + Água) - (Pic + Amostra + Água)]",
         textAlign: TextAlign.center,
         style: TextStyle(
           color: Colors.black,
@@ -168,23 +150,23 @@ class _InfoMiudaState extends State<InfoMiuda> {
     );
   }
 
-  tituloAmostra3() {
+  tituloAparente() {
     return Container(
       margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
       child: Text(
-        "Cálculo Amostra 3 (ml)",
+        "Cálculo Aparente",
         textAlign: TextAlign.center,
         style: TextStyle(
-            color: Colors.black, fontSize: 18.0, fontWeight: FontWeight.bold),
+            color: Colors.black, fontSize: 20.0, fontWeight: FontWeight.bold),
       ),
     );
   }
 
-  infoAmostra3() {
+  infoSaturado() {
     return Container(
       margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
       child: Text(
-        "[(Porcentagem de Água + 2) / 100] * Padrão de Agregados",
+        "Massa seca / [Massa Saturada + (Pic + água) - (Pic + Amostra + água)]",
         textAlign: TextAlign.center,
         style: TextStyle(
           color: Colors.black,
@@ -194,89 +176,23 @@ class _InfoMiudaState extends State<InfoMiuda> {
     );
   }
 
-  obsAmostra() {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-      child: Text(
-        "Obs. Em caso de divergências na análise é necessário realizar mais amostras.",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          color: Colors.red,
-          fontSize: 10.0,
-        ),
-      ),
-    );
-  }
-
-  tituloPesoAU() {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-      child: Text(
-        "Cálculo de Amostra Úmida",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-            color: Colors.black, fontSize: 18.0, fontWeight: FontWeight.bold),
-      ),
-    );
-  }
-
-  infoPesoAU() {
+  tituloAbs() {
     return Container(
       margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
       child: Text(
-        "Peso do Solo mais Molde - Peso do Molde",
+        "Cálculo Absorção",
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: Colors.black,
-          fontSize: 15.0,
-        ),
+            color: Colors.black, fontSize: 20.0, fontWeight: FontWeight.bold),
       ),
     );
   }
 
-  tituloMassaEU() {
+  infoAbs() {
     return Container(
       margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
       child: Text(
-        "Cálculo de Massa Específica Úmida",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-            color: Colors.black, fontSize: 18.0, fontWeight: FontWeight.bold),
-      ),
-    );
-  }
-
-  infoMassaEU() {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-      child: Text(
-        "Peso da Amostra Úmida / Volume do Molde",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 15.0,
-        ),
-      ),
-    );
-  }
-
-  tituloMassaEC() {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-      child: Text(
-        "Cálculo de Massa Específica Convertida",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-            color: Colors.black, fontSize: 18.0, fontWeight: FontWeight.bold),
-      ),
-    );
-  }
-
-  infoMassaEC() {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-      child: Text(
-        "Massa Específica Úmida /\n [(Porcentagem de Água + 100) / 100]",
+        "[(Massa Saturada - Massa Seca) / Massa Seca] * 100",
         textAlign: TextAlign.center,
         style: TextStyle(
           color: Colors.black,

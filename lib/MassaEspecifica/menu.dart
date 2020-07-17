@@ -46,7 +46,9 @@ class _MenuState extends State<Menu> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(18.0),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/massamiuda');
+        },
         child: Text(
           "Massa Especifica Miúda",
           style: TextStyle(color: Colors.white, fontSize: 22.0),

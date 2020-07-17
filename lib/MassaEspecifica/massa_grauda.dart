@@ -9,10 +9,12 @@ class _MassaEGraudaState extends State<MassaEGrauda> {
   GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   TextEditingController secaController = TextEditingController();
   TextEditingController saturadaController = TextEditingController();
-  TextEditingController volumeController = TextEditingController();
+  TextEditingController imersaController = TextEditingController();
   String resutReal = "";
   String resutAparente = "";
   String resutAbsorcao = "";
+  String resutVReal = "";
+  String resutVAparente = "";
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +57,7 @@ class _MassaEGraudaState extends State<MassaEGrauda> {
               // tituloRice(),
               amostraSeca(),
               amostraSaturada(),
-              amostraVolume(),
+              amostraImersa(),
               buttonMGrauda(),
               resultadoMGrauda(),
             ],
@@ -69,10 +71,12 @@ class _MassaEGraudaState extends State<MassaEGrauda> {
     setState(() {
       secaController.text = "";
       saturadaController.text = "";
-      volumeController.text = "";
+      imersaController.text = "";
       resutReal = "";
       resutAparente = "";
       resutAbsorcao = "";
+      resutVReal = "";
+      resutVAparente = "";
     });
   }
 
@@ -126,13 +130,13 @@ class _MassaEGraudaState extends State<MassaEGrauda> {
     );
   }
 
-  amostraVolume() {
+  amostraImersa() {
     return SingleChildScrollView(
       padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
       child: TextFormField(
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
-          labelText: "Volume Amostra",
+          labelText: "Amostra Imersa",
           labelStyle: TextStyle(
             color: Colors.black,
             fontSize: 15,
@@ -140,7 +144,7 @@ class _MassaEGraudaState extends State<MassaEGrauda> {
         ),
         style: TextStyle(fontSize: 17),
         textAlign: TextAlign.center,
-        controller: volumeController,
+        controller: imersaController,
         validator: (value) {
           if (value.isEmpty) {
             return 'Informe o valor do Volume Amostra';
@@ -164,6 +168,8 @@ class _MassaEGraudaState extends State<MassaEGrauda> {
             calculaReal();
             calculaAparente();
             calculaAbsorcao();
+            calculaVReal();
+            calculaVAparente();
             FocusScope.of(context).requestFocus(new FocusNode());
           }
         },
@@ -179,7 +185,7 @@ class _MassaEGraudaState extends State<MassaEGrauda> {
   void calculaReal() {
     setState(() {
       double seca = double.parse(secaController.text);
-      double volume = double.parse(volumeController.text);
+      double volume = double.parse(imersaController.text);
 
       double cont1 = seca / (seca - volume);
 
@@ -195,12 +201,12 @@ class _MassaEGraudaState extends State<MassaEGrauda> {
     setState(() {
       double seca = double.parse(secaController.text);
       double saturada = double.parse(saturadaController.text);
-      double volume = double.parse(volumeController.text);
+      double volume = double.parse(imersaController.text);
 
       double cont2 = seca / (saturada - volume);
 
       if (cont2 >= 0) {
-        resutAparente = "Saturada: ${cont2.toStringAsPrecision(4)}";
+        resutAparente = "Aparente: ${cont2.toStringAsPrecision(4)}";
       } else {
         resutAparente = "Valor inválido";
       }
@@ -222,6 +228,36 @@ class _MassaEGraudaState extends State<MassaEGrauda> {
     });
   }
 
+  void calculaVReal() {
+    setState(() {
+      double seca = double.parse(secaController.text);
+      double volume = double.parse(imersaController.text);
+
+      double cont4 = seca - volume;
+
+      if (cont4 >= 0) {
+        resutVReal = "Volume Real: ${cont4.toStringAsPrecision(4)}";
+      } else {
+        resutVReal = "Valor inválido";
+      }
+    });
+  }
+
+  void calculaVAparente() {
+    setState(() {
+      double saturada = double.parse(saturadaController.text);
+      double volume = double.parse(imersaController.text);
+
+      double cont5 = saturada - volume;
+
+      if (cont5 >= 0) {
+        resutVAparente = "Volume Aparente: ${cont5.toStringAsPrecision(4)}";
+      } else {
+        resutVAparente = "Valor inválido";
+      }
+    });
+  }
+
   resultadoMGrauda() {
     return Container(
       margin: const EdgeInsets.fromLTRB(0, 8, 0, 0),
@@ -229,7 +265,7 @@ class _MassaEGraudaState extends State<MassaEGrauda> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            "\n$resutReal \n\n$resutAparente \n\n$resutAbsorcao",
+            "\n$resutReal \n\n$resutAparente \n\n$resutAbsorcao \n\n$resutVReal \n\n$resutVAparente",
             // "Peso: $_peso e Volume: $_volume",
             textAlign: TextAlign.center,
             style: TextStyle(

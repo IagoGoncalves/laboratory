@@ -30,6 +30,8 @@ class _BgsState extends State<Bgs> {
   dynamic _peso;
   dynamic _volume;
 
+  //Map<int,int> = [[4145: 2100],[4405, 2085]];
+
   List<int> cilindro1 = [4145, 2100];
   List<int> cilindro2 = [4405, 2085];
   List<int> cilindro3 = [4140, 2095];
@@ -402,8 +404,8 @@ class _BgsState extends State<Bgs> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            "$amst1 \n$amst2 \n$amst3 \n$b2 \n$b38 \n$b316 \n$pesoau \n$massaeu \n$massaec",
-            // "Peso:  e Volume: ",
+            // "$amst1 \n$amst2 \n$amst3 \n$b2 \n$b38 \n$b316 \n$pesoau \n$massaeu \n$massaec",
+            "Peso:  e Volume: ",
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.purple,
