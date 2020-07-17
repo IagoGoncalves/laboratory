@@ -6,6 +6,11 @@ import 'Check/check.dart';
 import 'BGS/info_bgs.dart';
 import 'Check/info_check.dart';
 import 'BGS/bgs.dart';
+import 'MassaEspecifica/menu.dart';
+import 'MassaEspecifica/massa_grauda.dart';
+import 'MassaEspecifica/massa_miuda.dart';
+import 'MassaEspecifica/info_miuda.dart';
+import 'MassaEspecifica/info_grauda.dart';
 // import 'Desabilitados/rice.dart';
 // import 'Desabilitados/vazio.dart';
 
@@ -23,6 +28,12 @@ void main() {
       '/infocheck': (context) => InfoCheck(),
       '/infobgs': (context) => InfoBgs(),
       '/cilindros': (context) => Cilindros(),
+      '/menu': (context) => Menu(),
+      '/infomiuda': (context) => InfoMiuda(),
+      '/infograuda': (context) => InfoGrauda(),
+      '/massagrauda': (context) => MassaEGrauda(),
+      '/massamiuda': (context) => MassaEMiuda(),
+      '/picnometro': (context) => InfoMiuda(),
     },
   ));
 }
@@ -86,6 +97,16 @@ class Home extends StatelessWidget {
           enabled: true,
           onTap: () {
             Navigator.pushNamed(context, '/bgs');
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.chevron_right),
+          title: Text("Massa Específica"),
+          subtitle: Text("Miúda e Graúda"),
+          selected: false,
+          enabled: true,
+          onTap: () {
+            Navigator.pushNamed(context, '/menu');
           },
         ),
 

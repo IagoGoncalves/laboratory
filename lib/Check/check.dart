@@ -231,6 +231,9 @@ class _CheckState extends State<Check> {
       margin: const EdgeInsets.fromLTRB(0, 3, 0, 0),
       height: 30.0,
       child: RaisedButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(18.0),
+        ),
         onPressed: () {
           if (_formkey.currentState.validate()) {
             calculaRice();
@@ -371,6 +374,9 @@ class _CheckState extends State<Check> {
       margin: const EdgeInsets.fromLTRB(0, 3, 0, 0),
       height: 30.0,
       child: RaisedButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(18.0),
+        ),
         onPressed: () {
           if (_formkey1.currentState.validate()) {
             calculaDensidadeA();
@@ -421,6 +427,9 @@ class _CheckState extends State<Check> {
       margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
       height: 30.0,
       child: RaisedButton(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(18.0),
+        ),
         onPressed: () {
           if (_formkey.currentState.validate() &&
               _formkey1.currentState.validate()) {
